@@ -10,5 +10,5 @@ Contains information taken from the impact data provided by SWA to create the up
 
 Contains the processing script (Ratings_PostProcessing_V02 (1)) that takes in data from 'Impact Results'. The analysis scripts are contained in the 'Analyses' subfolder, for the time-series plotting and t-tests. 
 
-### Real Impact DData
+### Real Impact Data
 Data from SWA fro MMA and rugby impacts.
