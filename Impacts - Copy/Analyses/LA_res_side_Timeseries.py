@@ -67,6 +67,7 @@ for idx, signal in enumerate(signals1):
 plt.title('Side LA (res) Time Series')
 plt.xlabel('Time (ms)')
 plt.ylabel('Linear Acceleration g')
+plt.xlim(5, 30)  # Set x-axis limits to 0-40
 #plt.legend()
 plt.grid(True)
 plt.show()

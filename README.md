@@ -4,7 +4,7 @@
 ## Repo Structure
 
 ### Corridors
-Contains information taken from the impact data provided by SWA to create the upper bound corridors for resultant, x, y, and z linear and rotational acceleration.
+Contains information taken from the impact data provided by SWA to create the upper bound corridors for resultant, x, y, and z linear and rotational acceleration. Only resultant were used in the report.
 
 ### Impacts - Copy
 

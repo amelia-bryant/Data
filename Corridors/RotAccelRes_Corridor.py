@@ -2,20 +2,20 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.ndimage import gaussian_filter
 
-# Convert Excel file to CSV
+# Convert Excel to CSV
 def excel_to_csv(excel_file, csv_file):
-    # Read Excel file into a DataFrame
+    # Read Excel into df
     df = pd.read_excel(excel_file)
-    # Write DataFrame to CSV file
+    # Write df to CSV file
     df.to_csv(csv_file, index=False)
 
 excel_file_path = 'Excels/RotAccel_Res.xlsx'
 csv_file_path = 'csv_conversions/RotAccelRes_csv.csv'
 
-# Convert Excel file to CSV
+# Convert Excel to CSV
 excel_to_csv(excel_file_path, csv_file_path)
 
-# Load signals from CSV file into a DataFrame
+# Load signals from CSV into df
 df = pd.read_csv(csv_file_path)
 
 # Exclude the first column
@@ -24,7 +24,7 @@ exclude_columns = ['Time']
 # Extract signals from df
 signals = [df[col].tolist() for col in df.columns if col not in exclude_columns]
 
-# Names of the columns and lists
+# Names of columns and lists
 signal_names = [col for col in df.columns if col not in exclude_columns]
 upper_bound_signal = []
 lower_bound_signal = []
@@ -33,22 +33,22 @@ lower_bound_signal = []
 for i in range(len(signals[0])):  
     max_value_at_position = float('-inf')
     min_value_at_position = float('inf')
-    # Iterate over each signal to find the maximum and minimum values at the current position
+    # Iterate over each signal to find the maximum and minimum val
     for signal in signals:
         if signal[i] > max_value_at_position:
             max_value_at_position = signal[i]
         if signal[i] < min_value_at_position:
             min_value_at_position = signal[i]
-    # Append the maximum value at this position to the upper_bound_signal
+    # Append the maxi value to upper_bound_signal
     upper_bound_signal.append(max_value_at_position)
-    # Append the minimum value at this position to the lower_bound_signal
+    # Append the min value to the lower_bound_signal
     lower_bound_signal.append(min_value_at_position)
 
-sigma = 1.5  # Standard deviation of the Gaussian kernel (adjust as needed)
+sigma = 1.5  # Standard deviation of Gaussian kernel 
 smoothed_upper_signal = gaussian_filter(upper_bound_signal, sigma=sigma)
 smoothed_lower_signal = gaussian_filter(lower_bound_signal, sigma=sigma)
 
-# Save the graph data to CSV
+# Save 
 graph_data = {
     'Time': range(len(smoothed_upper_signal)),
     'Smoothed_Upper_Signal': smoothed_upper_signal,

@@ -67,6 +67,7 @@ for idx, signal in enumerate(signals1):
 plt.title('Rotational Acceleration (Resultant) Timeseries')
 plt.xlabel('Time (ms)')
 plt.ylabel('Rotational Acceleration rad/s2')
+plt.xlim(5, 30)  # Set x-axis limits to 0-40
 #plt.legend()
 plt.grid(True)
 plt.show()

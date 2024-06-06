@@ -1,10 +1,10 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Load the graph data from CSV
+# Load graph data from CSV
 graph_df = pd.read_csv('RA_Res_Corridor.csv')
 
-# Extract the data
+# Extract 
 time = graph_df['Time'].to_numpy()
 smoothed_upper_signal = graph_df['Smoothed_Upper_Signal'].to_numpy()
 smoothed_lower_signal = graph_df['Smoothed_Lower_Signal'].to_numpy()
