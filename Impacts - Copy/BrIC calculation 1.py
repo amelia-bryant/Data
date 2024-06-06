@@ -14,12 +14,12 @@ for filename in os.listdir(directory):
         excel_file = os.path.join(directory, filename)
         df = pd.read_csv(excel_file)
 
-        # Find the index where la_r is max
+        # Find index where la_r is max
         max_la_r_index = df['la_r'].idxmax()
         max_rv_r_index = df['rv_r'].idxmax()
         max_ra_r_index = df['ra_r'].idxmax()
 
-        # Find the corresponding values of la_x, la_y, la_z, rv_x, rv_y, and rv_z
+        # Find corresponding values of la_x, la_y, la_z, rv_x, rv_y, and rv_z
         max_values[filename] = {
             'max_la_x': df.at[max_la_r_index, 'la_x'],
             'max_la_y': df.at[max_la_r_index, 'la_y'],
@@ -38,10 +38,10 @@ for filename in os.listdir(directory):
 
        
 
-# Create a DataFrame from the dictionary
+# Create a df from the dictionary
 max_values_df = pd.DataFrame.from_dict(max_values, orient='index')
 
-# Save the DataFrame to an Excel file
+# Save df to Excel 
 output_excel_file = 'max_values_relaxed.xlsx'
 max_values_df.to_excel(output_excel_file)
 

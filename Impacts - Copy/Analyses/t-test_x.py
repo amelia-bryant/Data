@@ -11,15 +11,14 @@ def perform_t_tests(data_pairs, alpha=0.05):
         print(f"P-value: {p_value}")
         
         if p_value < alpha:
-            print(f"Since the p-value ({p_value}) is less than the significance level ({alpha}), we reject the null hypothesis.")
+            print(f"Since the p-value ({p_value}) is less than the significance level ({alpha}), reject the null.")
             print("Conclusion: There is a significant difference between the two sets of data.")
         else:
-            print(f"Since the p-value ({p_value}) is greater than the significance level ({alpha}), we fail to reject the null hypothesis.")
+            print(f"Since the p-value ({p_value}) is greater than the significance level ({alpha}), fail to reject the null.")
             print("Conclusion: There is no significant difference between the two sets of data.")
         print('-' * 50)
 
-# Example named data pairs
-
+# Data pairs
 LA_Front = ('LA_Front', 'Relaxed', [33.61099419,
 27.8335907,
 38.33468705,
@@ -93,8 +92,8 @@ RV_Side = ('RV_Side', 'Relaxed', [2.757295647,
 2.678167368,
 2.255291346,
 2.216257517])
-# List of named data pairs
-data_pairs = [LA_Front,LA_Side, RV_Front,RV_Side]
 
-# Perform t-tests and report the conclusions for each pair of named data sets
+
+# Run test
+data_pairs = [LA_Front,LA_Side, RV_Front,RV_Side]
 perform_t_tests(data_pairs)
